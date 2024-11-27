@@ -44,7 +44,7 @@ docker setup
 docker run -v F:/:/mnt -d -t -p 3000:3000 --gpus all --name openvla_1126 pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 
 # exec bash
-docker exec -it openvla /bin/bash
+docker exec -it openvla_1126 /bin/bash
 
 # install packages
 apt update
