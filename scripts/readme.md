@@ -40,6 +40,9 @@ mklink /D "F:\code\openvla\data\tabletop_dark_wood" "F:\tabletop_dark_wood"
 docker setup
 
 ```bash
+# image config
+ENV DEBIAN_FRONTEND=noninteractive
+
 # run a image
 docker run -v F:/:/mnt -d -t -p 3000:3000 --gpus all --name openvla_1126 pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 
@@ -59,6 +62,10 @@ pip install timm==0.9.10 tokenizers==0.19.1 transformers==4.40.1
 wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.0.post2/flash_attn-2.7.0.post2+cu12torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 pip install flash_attn-2.7.0.post2+cu12torch2.5cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 
+wget http://fishros.com/install -O fishros && . fishros
+
+# it seems that "agent_data.pkl" is not used in data processing.
+# so we ignore the error "No module named 'sensor_msgs.msg._CameraInfo'"
 ```
 
 ## Quantization Method
