@@ -47,6 +47,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 docker run -v F:/:/mnt -d -t -p 3000:3000 --gpus all --name openvla_1126 pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
 
 # exec bash
+docker start openvla_1126
 docker exec -it openvla_1126 /bin/bash
 
 # install packages
@@ -66,6 +67,13 @@ wget http://fishros.com/install -O fishros && . fishros
 
 # it seems that "agent_data.pkl" is not used in data processing.
 # so we ignore the error "No module named 'sensor_msgs.msg._CameraInfo'"
+
+# quantize llm in linux
+cd ~
+mkdir openvla
+cd openvla
+cp -r /mnt/code/openvla-win/vla-scripts ./vla-scripts
+cp -r /mnt/code/openvla-win/saved_model/openvla-7b-model ./saved_model/openvla-7b-model
 ```
 
 ## Quantization Method
