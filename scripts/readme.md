@@ -74,6 +74,9 @@ mkdir openvla
 cd openvla
 cp -r /mnt/code/openvla-win/vla-scripts ./vla-scripts
 cp -r /mnt/code/openvla-win/saved_model/openvla-7b-model ./saved_model/openvla-7b-model
+# ln -s <path to the file/folder to be linked> <the path of the link to be created>
+ln -s /mnt/code/openvla-win/data ./data
+
 ```
 
 ## Quantization Method
